@@ -1,5 +1,12 @@
 body{
     font-family: "Plus Jakarta Sans", serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex:1;
 }
 
 /* Navbar */
@@ -9,7 +16,7 @@ background-color: white;
 }
 
 .fa-plane-departure{
-    color: #fe424d;
+    color: #0059b3;
     font-size: 2rem;
 }
 
@@ -82,4 +89,28 @@ background-color: white;
 .card-img-overlay:hover{
     opacity: 0.2;
     background-color: white;
+}
+
+/* New Page */
+.add-btn{
+    background-color: #0059b3 !important;
+    border: none !important;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Show Page */
+.show-img{
+    height: 34vh;
+}
+
+.btns{
+    display: flex;
+}
+
+.del-btn{
+    background-color: #fe424d !important;
+    border: none !important;
 }
