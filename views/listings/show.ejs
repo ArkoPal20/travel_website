@@ -2,14 +2,10 @@
 <div class="row">
     <div class="col-8 offset-2">
     <br>
-    <h3><b>Listing Details</b></h3>
+    <h3><b><%= listing.title %></b></h3>
     <br>
-    <div class="card">
+    <div class="card show-card listing-card">
         <img src="<%= listing.image %>" class="card-img-top show-img" alt="listing_image">
-        <br>
-        <div class="card-body">
-            <p class="card-text" style="font-size: 1.5rem;"><b><%= listing.title %></b></p>
-        </div>
     </div>
     <ul>
         <li><%= listing.description %></li>
@@ -23,5 +19,40 @@
             <button class="btn btn-dark offset-4 del-btn">Delete</button>
         </form>
     </div>
+    <hr>
+    </div>
+    <div class="col-5 offset-2 mb-3">
+        <h4><b>Leave a Review</b></h4>
+        <form action="/listings/<%= listing.id %>/reviews" method="POST" novalidate class="needs-validation">
+            <div class="mb-3 mt-3">
+                <label for="rating" class="form-label">Rating</label>
+                <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range ">
+            </div>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Comments</label>
+                <textarea name="review[comment]" id="comment" cols="2" rows="5" class="form-control" required></textarea>
+                <div class="invalid-feedback">Please add some commments for review</div>
+            </div>
+            <button class="btn btn-outline-dark">Submit</button>
+        </form>
+        
+    </div>
+    <div class="col-8 offset-2">
+        <hr>
+        <h3><b>All Reviews</b></h3><br>
+        <div class="row">
+            <% for(review of listing.reviews) { %>
+                <div class="card col-5 ms-5 mb-4">
+                    <div class="card-body mt-2">
+                        <h5 class="card-title">Jane Doe</h5>
+                        <p class="card-text"><%= review.comment %></p>
+                        <p class="card-text"><%= review.rating %> stars</p>
+                    </div>
+                    <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="mb-3 mt-2" method="POST">
+                        <button class="btn btn-dark btn-sm del-btn">Delete</button>
+                    </form>
+                </div>
+            <% } %>
+        </div>
     </div>
 </div>
