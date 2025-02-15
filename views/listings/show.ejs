@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-8 offset-2">
     <br>
-    <h3><b><%= listing.title %></b></h3>
-    <br>
+    <h3><b> <%= listing.title %></b></h3>
+    <p><b>Posted by</b> <%= listing.owner.username %></p>
     <div class="card show-card listing-card">
         <img src="<%= listing.image %>" class="card-img-top show-img" alt="listing_image">
     </div>
@@ -56,3 +56,6 @@
         </div>
     </div>
 </div>
+
+<!-- <% if(currUser && currUser._id.equals(listing.owner._id)) { %> -->
+ <!-- <% } %> -->
