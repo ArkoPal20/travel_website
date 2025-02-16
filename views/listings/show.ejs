@@ -13,6 +13,7 @@
         <li><%= listing.location %></li>
         <li><%= listing.country %></li>
     </ul>
+    <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
     <div class="btns">
         <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 ">Edit</a>
         <form method="POST" action="/listings/<%= listing._id%>?_method=DELETE">
@@ -20,7 +21,9 @@
         </form>
     </div>
     <hr>
+    <% } %>
     </div>
+    <% if(currUser) { %>
     <div class="col-5 offset-2 mb-3">
         <h4><b>Leave a Review</b></h4>
         <form action="/listings/<%= listing.id %>/reviews" method="POST" novalidate class="needs-validation">
@@ -35,8 +38,8 @@
             </div>
             <button class="btn btn-outline-dark">Submit</button>
         </form>
-        
     </div>
+    <% } %>
     <div class="col-8 offset-2">
         <hr>
         <h3><b>All Reviews</b></h3><br>
@@ -44,7 +47,7 @@
             <% for(review of listing.reviews) { %>
                 <div class="card col-5 ms-5 mb-4">
                     <div class="card-body mt-2">
-                        <h5 class="card-title">Jane Doe</h5>
+                        <h5 class="card-title">@<%= review.author.username %></h5>
                         <p class="card-text"><%= review.comment %></p>
                         <p class="card-text"><%= review.rating %> stars</p>
                     </div>
@@ -57,5 +60,5 @@
     </div>
 </div>
 
-<!-- <% if(currUser && currUser._id.equals(listing.owner._id)) { %> -->
- <!-- <% } %> -->
+
+ 
