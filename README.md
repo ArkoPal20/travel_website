@@ -1,6 +1,7 @@
 # Travel-oholic
 
-A travel website with full-stack features (under progress).
+A travel website with full-stack features (under progress). 
+Website Link: https://trave-oholic.onrender.com/ (currently stopped)
 
 ## Project Overview
 
